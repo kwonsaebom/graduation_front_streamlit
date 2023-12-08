@@ -32,8 +32,9 @@ with st.form('form', clear_on_submit=True):
  
 if submitted and user_input:
     
-    token = st.secrets["token"]
-
+    #token = st.secrets["token"]
+    token = 'dwg5yL4kwsQkay_WLnMrqlruwXvYokR5Ji4G_sUsuCSYczVdC9Y17Ampcp8h_x5KdhyBFA.'
+    
     bard = Bard(token=token)
 
     optimized_query=query_optimizer(user_input) # 이 함수에서 쿼리 optimize하기
