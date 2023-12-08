@@ -32,7 +32,6 @@ with st.form('form', clear_on_submit=True):
  
 if submitted and user_input:
     
-    #token = st.secrets["token"]
     token = 'dwg5yL4kwsQkay_WLnMrqlruwXvYokR5Ji4G_sUsuCSYczVdC9Y17Ampcp8h_x5KdhyBFA.'
     
     bard = Bard(token=token)
@@ -46,3 +45,7 @@ if submitted and user_input:
     st.title('✨ Graduation Project ✨')
     st.session_state.past.append(optimized_query)
     st.session_state.generated.append(optimized_prompt)
+
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        message(st.session_state["generated"][i], key=str(i))
