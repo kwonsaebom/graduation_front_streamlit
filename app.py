@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_chat import message
- 
+import os
+
 from bardapi import Bard
 
 def query_optimizer(user_input):
@@ -46,6 +47,6 @@ if submitted and user_input:
     st.session_state.past.append(optimized_query)
     st.session_state.generated.append(optimized_prompt)
 
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
+    for i in range(len(st.session_state['generated'])):
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
         message(st.session_state["generated"][i], key=str(i))
