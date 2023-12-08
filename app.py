@@ -1,4 +1,3 @@
-import openai
 import streamlit as st
 from streamlit_chat import message
  
@@ -33,7 +32,7 @@ with st.form('form', clear_on_submit=True):
  
 if submitted and user_input:
     
-    token = 'dwg5yL4kwsQkay_WLnMrqlruwXvYokR5Ji4G_sUsuCSYczVdC9Y17Ampcp8h_x5KdhyBFA.'
+    token = st.secrets["token"]
 
     bard = Bard(token=token)
 
